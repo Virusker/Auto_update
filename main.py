@@ -23,8 +23,8 @@ def webhook():
     if request.method == 'POST':
         payload = request.get_data(as_text=True)
         if is_valid_signature(request):
-            default_path = "./home/ubuntu"
-            cmd = f'{default_path}/auto_deploy.sh'
+            default_path = "../home/ubuntu"
+            cmd = f'~/Auto_update/auto_deploy.sh'
             print(cmd)
             print("Received valid signature")
             result = subprocess.run([cmd,app_name,path], check=False)
