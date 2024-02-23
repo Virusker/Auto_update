@@ -17,16 +17,15 @@ print(SECRET_KEY)
 app_name = os.getenv('APP_NAME')
 path = os.getenv('APP_PATH')
 app = Flask(__name__)
-
+default_path = os.getcwd()
+cmd = f'{default_path}/auto_deploy.sh'
+print(cmd)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     if request.method == 'POST':
         payload = request.get_data(as_text=True)
         if is_valid_signature(request):
             print("Received valid signature")
-            default_path = os.getcwd()
-            cmd = f'{default_path}/auto_deploy.sh'
-            print(cmd)
             result = subprocess.run([cmd,app_name,path], check=False)
             
             # with open('deploy_log.txt', 'w') as log_file:
