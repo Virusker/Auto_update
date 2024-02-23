@@ -25,7 +25,7 @@ def webhook():
         if is_valid_signature(request):
             print("Received valid signature")
             default_path = os.getcwd()
-            cmd = f'.{default_path}/auto_deploy.sh'
+            cmd = f'{default_path}/auto_deploy.sh'
             print(cmd)
             result = subprocess.run([cmd,app_name,path], check=False)
             
