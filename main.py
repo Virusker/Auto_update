@@ -25,7 +25,7 @@ def webhook():
         if is_valid_signature(request):
             print("Received valid signature")
             result = subprocess.run(['./auto_deploy.sh',app_name,path], check=False)
-            print(result.as_text)
+            
             # with open('deploy_log.txt', 'w') as log_file:
             #     result = subprocess.run([f'./auto_deploy.sh',app_name], check=False, stdout=log_file, stderr=subprocess.PIPE)
             return 'Webhook received successfully!', 200
