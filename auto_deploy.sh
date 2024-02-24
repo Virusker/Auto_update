@@ -5,4 +5,4 @@ cd $2
 /usr/bin/git pull  # hoặc branch bạn đang sử dụng
 #systemctl restart your_app.service  # khởi động lại ứng dụng
 
-systemctl restart $1
+/usr/bin/systemctl restart $1
